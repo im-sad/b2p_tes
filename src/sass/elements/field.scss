@@ -1,0 +1,57 @@
+.field {
+  &__label {
+    @include font-size(12px, 13px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: $color-muted;
+    margin-bottom: 14px;
+    cursor: default;
+    user-select: none;
+  }
+
+  &.has-error &__label {
+    color: $color-error;
+  }
+
+  &__label-text {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: default;
+  }
+
+  &__helper {
+    margin-left: 8px;
+  }
+
+  &__core {
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__error {
+    @include font-size(12px, 14px);
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    color: $color-error;
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &.has-error &__error {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: $media-smartphone) {
+    &__label {
+      margin-bottom: 6px;
+    }
+  }
+}

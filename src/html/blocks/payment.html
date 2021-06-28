@@ -1,0 +1,71 @@
+<div class="payment">
+  <form action="#" class="payment__form" id="js-card-form">
+
+    <div class="payment__3d">
+      <div class="card-block card-block--tinkoff payment__card">
+        <div class="card-block__row">
+          <div class="card-block__cell field">
+            <label for="input-card" class="field__label">
+              <span class="field__label-text">Номер карты</span>
+            </label>
+            <div class="field__core">
+              <input type="text" class="field__input input input--size-base" id="input-card" placeholder="1234 5678 1234 5678" autocomplete="off" required />
+              <span class="field__error"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-block__row">
+          <div class="card-block__cell field">
+            <label for="card-date" class="field__label">
+              <span class="field__label-text">Месяц / год</span>
+            </label>
+            <div class="field__core">
+              <input type="text" class="field__input input input--size-base" id="card-date" placeholder="ММ / ГГ" autocomplete="off" required />
+
+              <span class="field__error"></span>
+            </div>
+          </div>
+
+
+          <div class="card-block__cell field">
+            <div class="field__label">
+              <label for="card-cvv" class="field__label-text">CVV / CVC</label>
+
+              <div class="field__helper helper js-tooltip">
+                <svg class="helper__icn"><use xlink:href="#icn-q" /></svg>
+                <span class="helper__tooltip">
+                  Три цифры с обратной стороны карты
+                </span>
+              </div>
+            </div>
+
+            <div class="field__core">
+              <input type="text" class="field__input input input--size-base" id="card-cvv" placeholder="123" autocomplete="off" required />
+
+              <span class="field__error"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment__sended">
+        Ура! Оформили на Вас кредит.
+      </div>
+    </div>
+
+
+    <label class="payment__save checkbox">
+      <input type="checkbox" id="save-card" checked />
+      <span class="checkbox__title">Сохранить карту для следующих покупок</span>
+    </label>
+
+
+    <button class="payment__send btn btn--size-base btn-main" type="submit" disabled>Оплатить</button>
+
+
+    <div class="payment__accept">
+      Нажимая на кнопку «Перевести», вы соглашаетесь с <a class="link" href="#">условиями оферты</a>
+    </div>
+  </form>
+</div>

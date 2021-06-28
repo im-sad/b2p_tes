@@ -1,0 +1,45 @@
+.input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid $color-border;
+  transition: border 0.3s ease, color 0.3s ease;
+  outline: none !important;
+  color: $color-text;
+
+  &:valid {
+    border-bottom-color: $color-muted;
+  }
+
+  &:hover,
+  &:focus {
+    border-bottom-color: $color-main;
+  }
+
+  &::placeholder {
+    opacity: 1;
+    color: $color-border;
+  }
+
+  // Mod
+  &.has-error {
+    color: $color-error;
+    border-bottom-color: $color-error;
+  }
+
+  // Size
+  &--size-base {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: $media-smartphone) {
+    &--size-base {
+      height: 26px;
+      font-size: 14px;
+    }
+  }
+}

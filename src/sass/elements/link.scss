@@ -1,0 +1,11 @@
+.link {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  color: $color-text;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    color: $color-main-hover;
+    border-bottom-color: rgba($color-main-hover, 0.3);
+  }
+}

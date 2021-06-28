@@ -1,0 +1,49 @@
+// Base
+$width: 1200px;
+$bg: #eee;
+$url-img: '../img/bg';
+$url-font: '../fonts';
+
+// Colors
+$color-white: #fff;
+$color-black: #000;
+
+$color-main: #FF335F;
+$color-main-hover: #FF446D;
+$color-main-active: #E1264F;
+$color-accent: #5983d5;
+$color-muted: #A6A6A6;
+$color-border: #F2F2F2;
+$color-error: #FF3B30;
+
+$color-link: $color-main;
+$color-link-hover: $color-main-hover;
+$color-text: #595959;
+
+// Safe font-family
+$font-Arial: 'Arial', 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+$font-ArialBlack: 'Arial Black', 'Helvetica CY', 'Nimbus Sans L' sans-serif;
+$font-ComicSans: 'Comic Sans MS', 'Monaco CY', cursive;
+$font-Courier: 'Courier New', 'Nimbus Mono L', monospace;
+$font-Georgia: 'Georgia', 'Century Schoolbook L', serif;
+$font-Impact: 'Impact', 'Charcoal CY', sans-serif;
+$font-LucidaConsole: 'Lucida Console', 'Monaco', monospace;
+$font-LucidaSans: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+$font-Palatino: 'Palatino Linotype', 'Book Antiqua', 'Palatino', serif;
+$font-Tahoma: 'Tahoma', 'Geneva CY', sans-serif;
+$font-TimesNew: 'Times New Roman', 'Times CY', 'Nimbus Roman No9 L', serif;
+$font-Trebuchet: 'Trebuchet MS', 'Helvetica CY', sans-serif;
+$font-Verdana: 'Verdana', 'Geneva CY', 'DejaVu Sans', sans-serif;
+
+
+// Font
+$font-base-size: 15px;
+$font-base-lh: 1.5;
+$font-family: 'Roboto', 'Trebuchet MS', 'Helvetica CY', sans-serif;
+
+$form-line-height: 1.25;
+
+
+// Media
+$media-phone: 380px;
+$media-smartphone: 500px;

@@ -1,0 +1,93 @@
+.payment {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+
+  &__3d {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 4px rgba(64, 64, 64, 0.08), 0 4px 16px rgba(64, 64, 64, 0.16);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  &__form.is-sended &__3d {
+    transform: rotateY(180deg);
+  }
+
+  &__card,
+  &__sended {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  &__card {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__sended {
+    @include font-size(20px, 24px);
+    border-radius: 12px;
+    background: $color-white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    text-align: center;
+    user-select: none;
+  }
+
+
+  &__save {
+    margin-top: 32px;
+    transition: opacity 0.2s ease;
+  }
+
+  &__send {
+    margin-top: 72px;
+    width: 295px;
+    height: 64px;
+  }
+
+  &__accept {
+    @include font-size(11px, 13px);
+    max-width: 241px;
+    margin-top: 24px;
+    text-align: center;
+    color: $color-muted;
+    transition: opacity 0.2s ease;
+  }
+
+  &__form.is-sended &__save,
+  &__form.is-sended &__send,
+  &__form.is-sended &__accept {
+    opacity: 0;
+  }
+
+  @media screen and (max-width: $media-smartphone) {
+    &__save {
+      margin-top: 24px;
+    }
+
+    &__send {
+      width: 100%;
+      height: 48px;
+      margin-top: 48px;
+    }
+
+    &__accept {
+      margin-top: 12px;
+      max-width: 100%;
+    }
+  }
+}

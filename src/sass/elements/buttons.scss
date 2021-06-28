@@ -1,0 +1,104 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+  outline: none !important;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:active:hover {
+    box-shadow: none;
+  }
+
+  &:focus {
+    // box-shadow: 0 0 0 2px ${rgba(color.white, 0.05)};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $color-muted;
+    pointer-events: none;
+  }
+
+
+  &.has-load {
+    color: transparent;
+    pointer-events: none;
+  }
+
+  @media (pointer: coarse) {
+    //
+  }
+
+  // Mod
+  &--size-base {
+    @include font-size(18px, 24px);
+    font-weight: 500;
+    border-radius: 56px;
+  }
+
+  @media screen and (max-width: $media-smartphone) {
+    &--size-base {
+      @include font-size(16px, 20px);
+    }
+  }
+}
+
+// Main btn
+.btn-main {
+  background: $color-main;
+  color: $color-white;
+
+  &:hover {
+    background: $color-main-hover;
+    color: $color-white;
+    box-shadow: 0 0 16px $color-main;
+  }
+
+  &:active {
+    background: $color-main-active;
+    color: $color-white;
+  }
+
+  &.has-load {
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 12;
+        left: 50%;
+        top: 50%;
+        width: 24px;
+        height: 24px;
+        margin-left: -12px;
+        margin-top: -12px;
+        animation: load 0.5s linear infinite;
+        background: url('../img/bg/loader@2x.png') no-repeat center center;
+        background-size: 24px 24px;
+    }
+  }
+}
+
+@keyframes load {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

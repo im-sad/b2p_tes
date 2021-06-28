@@ -1,0 +1,183 @@
+$control-size: 24px;
+$color-bg: #fff;
+$color-checked: $color-main;
+$color-disabled: #eee;
+
+.checkbox,
+.radio {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: $control-size;
+  min-height: $control-size;
+
+  &__title {
+    padding-left: ($control-size + 10px);
+    display: inline-block;
+    vertical-align: top;
+    user-select: none;
+  }
+
+  &__title:empty {
+    padding-left: $control-size;
+  }
+
+  &__title::before,
+  &__title::after {
+    content: '';
+    position: absolute;
+  }
+
+  input {
+    vertical-align: top;
+    margin: 0 3px 0 0;
+    width: 17px;
+    height: 17px;
+  }
+
+  input:not(checked) {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+/* checkbox */
+.checkbox {
+  &__title::before {
+    width: $control-size;
+    height: $control-size;
+    background: $color-bg;
+    left: 0;
+    top: 0;
+    border-radius: 6px;
+    border: 2px solid $color-muted;
+    transition: all 0.3s ease;
+  }
+
+  &__title::after {
+    width: $control-size;
+    height: $control-size;
+    background: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L4.75 9L11 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat center center;
+    background-size: 12px 10px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.2s ease;
+  }
+
+  // disabled
+  input:disabled ~ &__title {
+    cursor: default;
+
+    &::before {
+      opacity: 0.7;
+      background: $color-disabled;
+      filter: grayscale(1);
+    }
+  }
+
+  // checked
+  input:checked ~ &__title::before {
+    border-color: darken($color-checked, 2%);
+    background: $color-checked;
+  }
+
+  input:checked ~ &__title::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // hover
+  &:hover input:not(:checked) ~ &__title::before {
+    border-color: lighten($color-checked, 20%);
+  }
+
+  &:hover input:checked + &__title::before {
+    border-color: darken($color-checked, 15%);
+  }
+
+  // focus
+  & input:focus + &__title::before {
+    box-shadow: 0 0 0 2px lighten($color-checked, 40%);
+  }
+}
+
+
+/* radio */
+.radio {
+  &__title::before {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: $control-size;
+    height: $control-size;
+    line-height: $control-size;
+    background: $color-bg;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    border: 1px solid $color-muted;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  &__title::after {
+    background: $color-checked;
+    position: absolute;
+    left: $control-size / 2 / 2;
+    top: $control-size / 2 / 2;
+    width: $control-size / 2;
+    height: $control-size / 2;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: scale(0);
+  }
+
+  // checked
+  input:checked ~ &__title::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  // disabled
+  input:disabled ~ &__title {
+    cursor: default;
+
+    &::before {
+      opacity: 0.9;
+      background: $color-disabled;
+    }
+
+    &::before,
+    &::after {
+      filter: grayscale(1);
+    }
+  }
+
+  // hover
+  &:hover input:not(:checked) ~ &__title::before {
+    border-color: lighten($color-checked, 20%);
+  }
+
+  &:hover input[disabled][checked] ~ &__title::before {// 'not(:disabled)' no work
+    border-color: $color-muted;
+  }
+
+  &:hover input:checked + &__title::before {
+    border-color: darken($color-checked, 2%);
+  }
+
+  // focus
+  & input:focus + &__title::before {
+    box-shadow: 0 0 0 2px lighten($color-checked, 40%);
+  }
+}

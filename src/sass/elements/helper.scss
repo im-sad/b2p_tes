@@ -1,0 +1,67 @@
+
+.helper {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  user-select: none;
+  width: 18px;
+  height: 1em;
+
+  &__icn {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    color: $color-muted;
+    background: $color-border;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: help;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: color 0.3s ease, background 0.3s ease;
+  }
+
+  &:hover &__icn {
+    color: $color-border;
+    background: $color-muted;
+  }
+
+  &__tooltip {
+    visibility: hidden;
+    opacity: 0;
+    @include font-size(12px, 14px);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate(-50%, -20px);
+    background: $color-text;
+    border-radius: 8px;
+    padding: 8px;
+    width: 152px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: $color-white;
+    transition: all 0.3s ease;
+
+    &::before {
+      content: '';
+      will-change: all;
+      position: absolute;
+      bottom: -8px;
+      left: calc(50% - 10px);
+      background: url('../img/bg/tooltip.svg');
+      width: 20px;
+      height: 8px;
+    }
+  }
+
+  &:hover &__tooltip,
+  &.is-opened &__tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -8px);
+  }
+}

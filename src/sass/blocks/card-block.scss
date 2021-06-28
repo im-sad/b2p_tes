@@ -1,0 +1,71 @@
+.card-block {
+  width: 412px;
+  padding: 60px 56px 42px;
+
+  &--tinkoff {
+    background-image: url('../img/bg/bank.svg');
+    background-position: right 24px top 24px;
+    background-repeat: no-repeat;
+  }
+
+  &__row {
+    margin-left: -16px;
+    margin-right: -16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    & + & {
+      margin-top: 30px;
+    }
+  }
+
+  &__cell {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  @media screen and (max-width: $media-smartphone) {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    &--tinkoff {
+      background-image: url('../img/bg/bank.svg');
+      background-size: 42px 36px;
+      background-position: right 12px top 12px;
+    }
+
+    &__row {
+      & + & {
+        margin-left: -8px;
+        margin-right: -8px;
+      }
+    }
+
+    &__cell {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+
+  @media screen and (max-width: $media-phone) {
+    padding: 24px 20px;
+
+    &--tinkoff {
+      background-image: none;
+    }
+
+    &__row {
+      flex-direction: column;
+    }
+
+    &__cell {
+      & + & {
+        margin-top: 30px;
+      }
+    }
+  }
+}
